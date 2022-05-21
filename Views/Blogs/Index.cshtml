@@ -1,0 +1,65 @@
+@model IEnumerable<Blog>
+
+@{
+    ViewData["Title"] = "Blogs";
+}
+
+<h1>Blogs</h1>
+
+@foreach (var blog in Model.OrderByDescending(d=>d.BlogId)){
+<div class="card" style="width: 18rem;">
+  <h1 class="card-img-top">@blog.BlogId</h1>
+  <div class="card-body">
+    <h5 class="card-title">@blog.Title</h5>
+    <p class="card-text">@blog.Content</p>
+    <p class="card-text">@blog.DateTime</p>
+</div>
+</div>
+}
+@* 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+             <th>
+                @Html.DisplayFor(model => item.BlogId)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BlogId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BlogId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BlogId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@
